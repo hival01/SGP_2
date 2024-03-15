@@ -185,7 +185,7 @@ const POS = () => {
                       <Card.Img variant="top" src={product.image} />
                       <Card.Body>
                         <Card.Title>{product.name}</Card.Title>
-                        <Card.Text>${product.price}</Card.Text>
+                        <Card.Text>₹{product.price}</Card.Text>
                         <Button onClick={() => addProductToCart(product)}>
                           Add
                         </Button>
@@ -215,9 +215,9 @@ const POS = () => {
                     <tr key={item.id}>
                       <td>{item.id}</td>
                       <td>{item.name}</td>
-                      <td>${item.price}</td>
+                      <td>₹{item.price}</td>
                       <td>{item.quantity}</td>
-                      <td>${item.totalAmount}</td>
+                      <td>₹{item.totalAmount}</td>
                       <td>
                         <Button
                           variant="danger"
@@ -231,11 +231,11 @@ const POS = () => {
                   ))}
                 </tbody>
               </Table>
-              <h2 className="px-2 text-white">Total Amount: ${totalAmount}</h2>
+              <h2 className="px-2 text-white">Total Amount: ₹{totalAmount}</h2>
               <div className="m-3 d-flex justify-content-center">
                 {totalAmount !== 0 ? (
                   <Button className="btn btn-primary " onClick={handlePrint}>
-                    Pay Now
+                    Place Order
                   </Button>
                 ) : (
                   "Please add a product to the cart"

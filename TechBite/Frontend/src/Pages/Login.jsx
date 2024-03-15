@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -42,7 +42,6 @@ function Login() {
             >
               Create Acount{""}
             </Link>
-            {/* <Link to="/signup">Blogs</Link> */}
           </form>
         </div>
       </div>
