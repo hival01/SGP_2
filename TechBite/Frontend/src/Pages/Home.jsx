@@ -20,7 +20,6 @@ const Home = () => {
               <Link to="/signup" className="btn btn-secondary btn-lg">Sign Up</Link>
             </div>
             <Link to="/waiter" className="btn btn-info btn-lg m-3">I am Waiter</Link>
-            <Link to="/manager" className="btn btn-info btn-lg m-3">I am manager</Link>
           </div>
         </div>
       </div>
