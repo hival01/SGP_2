@@ -1,9 +1,40 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import React,{useState} from "react";
+import {Link,useNavigate} from 'react-router-dom';
+import Validation from "./SignupValidation";
+import axios from "axios";
 
 function Signup() {
+  const [values,setValues] =useState({
+    name:'',
+    email:'',
+    password:''
+   })
+   const navigate =useNavigate({})
+    
+    const [errors, setErrors] = useState({});
+
+  const handleInput = (event) => {
+    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors(Validation(values));
+    if(errors.name === "" && errors.email ==="" && errors.password ===""){
+        axios.post('http://localhost:8080/signup',values)
+        .then(res => {
+            navigate('/login');
+        })
+        .catch(err => console.log(err));
+
+    }
+   
+  }
+
+
+
+  
   return (
-    <>
+    
       <div
         className="d-flex justify-content-center align-items-center  vh-100 "
         style={{ backgroundColor: "#B5E2FA" }}
@@ -11,16 +42,15 @@ function Signup() {
         <div className="bg-white p-3 rounded w-25 ">
           <h2 >Sign UP</h2>
           <hr />
-          <form action="">
+          <form  onSubmit={handleSubmit}>
             <div  className="md-3 mt-3">
               <label htmlFor="name">
                 <strong>Name</strong>
               </label>
-              <input
-                type="text"
-                placeholder="Enter Name"
-                className="form-control rounded-0"
+              <input  type="text" placeholder="Enter Name" name='name'
+                onChange={handleInput}  className="form-control rounded-0"
               />
+              {errors.name && <span className='text-danger'>{errors.name}</span>}
             </div>
 
 
@@ -30,9 +60,11 @@ function Signup() {
               </label>
               <input
                 type="email"
-                placeholder="Enter Email"
+                placeholder="Enter Email" name='email'
+                onChange={handleInput} 
                 className="form-control rounded-0"
               />
+              {errors.email && <span className='text-danger'>{errors.email}</span>}
             </div>
             
             <div className="md-3 mt-3">
@@ -41,13 +73,15 @@ function Signup() {
               </label>
               <input
                 type="password"
-                placeholder="Enter Password"
+                placeholder="Enter Password" name='password'
+                onChange={handleInput} 
                 className="form-control rounded-0"
               />
+              {errors.password && <span className="text-danger">{errors.password}</span>}
             </div>
             <br />
             {/* <p>you are agree to our terms and conditon</p> */}
-            <button className="btn btn-success w-100 mb-2 rounded-25">
+            <button type='submit' className="btn btn-success w-100 mb-2 rounded-25">
               Sign Up{" "}
             </button>
             <p>Already have an account ?</p>
@@ -60,7 +94,7 @@ function Signup() {
           </form>
         </div>
       </div>
-    </>
+    
   );
 }
 

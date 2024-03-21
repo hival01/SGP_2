@@ -13,6 +13,9 @@ const Home = () => {
           <div className="text-center mb-5">
             <h2 className="display-4 mt-5">Welcome!</h2>
             <p className="lead">Streamline your restaurant operations with TechBite. Login to access your restaurant management tools or sign up to get started.</p>
+            <p><strong>
+              If you are Manager then Log in !!!
+              </strong></p>
           </div>
           <div className="d-flex flex-column align-items-center m-3">
             <div className="d-flex justify-content-between w-100 m-3">

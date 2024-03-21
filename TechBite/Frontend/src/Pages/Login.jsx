@@ -1,9 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Link,useNavigate } from "react-router-dom";
+import Validation from "./LoginValidation";
+import axios from "axios";
+import ManagerDashboard from "../layout/ManagerDashboard";
 
 function Login() {
+          const [values,setValues] =useState({
+            email:'',
+            password:'' 
+          })
+          const navigate=useNavigate();
+          const [errors, setErrors] = useState({})
+      
+        const handleInput = (event) => {
+          setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+        }
+      
+        const handleSubmit = async (event) => {
+          event.preventDefault();
+          
+          const validationErrors = Validation(values);
+          setErrors(validationErrors);
+        
+          // Check for validation errors
+          if (validationErrors.email === "" && validationErrors.password === "") {
+            try {
+              const res = await axios.post('http://localhost:8080/login', values);
+              
+              if (res.data === "Success") {
+                navigate("/manager");
+              } else {
+                alert("No record");
+              }
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        }
+        
+      
+      
+      
+
   return (
-    <>
+    
       <div
         className="d-flex justify-content-center align-items-center  vh-100 "
         style={{ backgroundColor: "#B5E2FA" }}
@@ -11,16 +51,19 @@ function Login() {
         <div className="bg-white p-3 rounded w-25 ">
           <h2>Login</h2>
           <hr />
-          <form action="">
+          <form  onSubmit={handleSubmit}>
             <div className="md-3 mt-3">
               <label htmlFor="email">
                 <strong>Email</strong>
               </label>
               <input
                 type="email"
-                placeholder="Enter Email"
+                placeholder="Enter Email" name='email'
+                onChange={handleInput}
                 className="form-control rounded-0"
               />
+
+              {errors.email && <span className="text-danger">{errors.email}</span>}
             </div>
             <div className="md-3 mt-3">
               <label htmlFor="password">
@@ -28,11 +71,13 @@ function Login() {
               </label>
               <input
                 type="password"
-                placeholder="Enter Password"
+                placeholder="Enter Password"  name='password'
+                onChange={handleInput} 
                 className="form-control rounded-0"
               />
+              {errors.password && <span className="text-danger">{errors.password}</span>}
             </div>
-            <button className="btn btn-success w-100 mt-4 rounded-25">
+            <button type='submit' className="btn btn-success w-100 mt-4 rounded-25">
               Log in{" "}
             </button>
             <p>you are agree to our terms and conditon</p>
@@ -45,7 +90,7 @@ function Login() {
           </form>
         </div>
       </div>
-    </>
+   
   );
 }
 
