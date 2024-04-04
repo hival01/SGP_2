@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 
+
 const app = express();
 app.use(cors());
 app.use(express.json())
@@ -50,3 +51,6 @@ app.post('/login', (req, res) => {
 app.listen(8080, () => {
     console.log("listening");
 })
+
+
+

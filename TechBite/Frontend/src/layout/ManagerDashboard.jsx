@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ManagerDashboard = () => {
   return (
     <div className="container-fluid mt-4">
@@ -17,7 +18,7 @@ const ManagerDashboard = () => {
           </div>
           <div className="row mt-3">
             <div className="col-md-6 offset-md-3">
-              <Link to="/manager/change-menu" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Change Menu</Link>
+             <Link to="/manager/EditMenu" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Edit Menu</Link>
             </div>
           </div>
         </div>
