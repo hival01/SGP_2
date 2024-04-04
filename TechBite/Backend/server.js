@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 
+
 const app = express();
 app.use(cors());
 app.use(express.json())
@@ -50,6 +51,7 @@ app.post('/login', (req, res) => {
 app.listen(8080, () => {
     console.log("listening");
 })
+<<<<<<< HEAD
 */
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -130,3 +132,8 @@ app.post('/kitchen/updateStatus', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
+=======
+
+
+
+>>>>>>> 6c0608093fe2253f86842f2582a59f1d1c140d01
