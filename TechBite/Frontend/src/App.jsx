@@ -6,6 +6,7 @@ import WaiterModule from "./Pages/WaiterModule";
 import ManagerDashboard from "./layout/ManagerDashboard";
 import Order from "./Pages/Order";
 import EditMenu from "./Pages/Manager";
+import KitchenModule from "./Pages/KitchenModule";
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
           <Route path="/manager" element={<ManagerDashboard/>} />
           <Route path="/manager/orders" element={<Order/>} />
           <Route path="/manager/EditMenu" element={<EditMenu/>} />
+          <Route path="/KitchenModule" element={<KitchenModule/>} />
+
           
         </Routes>
       </Router>

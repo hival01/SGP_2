@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button, Table } from "react-bootstrap";
 import { useReactToPrint } from "react-to-print";
+import axios from 'axios';
 
 const Order = () => {
   const [tables, setTables] = useState([]);
   const [selectedTable, setSelectedTable] = useState(null);
   const [billData, setBillData] = useState(null);
   const componentRef = useRef();
-
+  const [tableNumber,setTablesNumber] = useState('');
   // Fetch table data from the server on component mount
   useEffect(() => {
     fetchTablesData();
@@ -20,37 +21,36 @@ const Order = () => {
       { id: 1, number: 1 },
       { id: 2, number: 2 },
       { id: 3, number: 3 },
+      { id: 4, number: 4 },
+      { id: 5, number: 5 },
       // Add more tables as needed
     ];
     setTables(mockTablesData);
   };
 
-  const handleTableClick = (table) => {
-    // Fetch bill data for the selected table from the server (replace this with your actual API call)
-    const mockBillData = {
-      tableNumber: table.number,
-      items: [
-        { id: 1, name: "Pizza", price: 150, quantity: 1, totalAmount: 150 },
-        {
-          id: 2,
-          name: "Cold drink",
-          price: 100,
-          quantity: 1,
-          totalAmount: 100,
-        },
-        { id: 3, name: "chapati", price: 100, quantity: 1, totalAmount: 100 },
-        { id: 4, name: "parotha", price: 100, quantity: 1, totalAmount: 100 },
-        // Add more bill items as needed
-      ],
-      totalAmount: 450, // Calculate total amount based on items
-    };
-    setSelectedTable(table);
-    setBillData(mockBillData);
+  const handleTableClick = async () => {
+    try {
+      if (!tableNumber || isNaN(tableNumber) || tableNumber < 1 || tableNumber > 5) {
+        setErrorMessage('Please enter a valid table number (1 to 5).');
+        return;
+      }
+
+      const response = await axios.get(`http://localhost:8080/manager/${tableNumber}`);
+      setTableData(response.data);
+      setErrorMessage('');
+    } catch (error) {
+      console.error('Error fetching table data:', error);
+      setErrorMessage('Error fetching table data. Please try again.');
+    }
+  };
+
+  const handleTableNumberChange = (event) => {
+    setTableNumber(event.target.value);
   };
 
   const handleGenerateBill = () => {
     // Logic to generate bill (e.g., print or save as PDF)
-    console.log("Generating bill for table:", selectedTable.number);
+    console.log("Generating bill for table:", selectedTable);
     handlePrint();
   };
 
@@ -65,8 +65,8 @@ const Order = () => {
         {tables.map((table) => (
           <div key={table.id} className="col-lg-2 mb-4">
             <Button
-              onClick={() => handleTableClick(table)}
-              variant={selectedTable === table ? "success" : "primary"}
+              onClick={() => handleTableClick(table.number)}
+              variant={selectedTable === table.number ? "success" : "primary"}
             >
               Table {table.number}
             </Button>
@@ -75,7 +75,7 @@ const Order = () => {
       </div>
       {selectedTable && (
         <div className="mt-4">
-          <h2>Bill for Table {selectedTable.number}</h2>
+          <h2>Bill for Table {selectedTable}</h2>
           {/* this will be print in bill */}
           <div ref={componentRef} >
             {billData && (

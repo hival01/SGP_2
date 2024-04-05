@@ -1,4 +1,4 @@
-import pizza from "../asset/pizza.jpeg";
+/*import pizza from "../asset/pizza.jpeg";
 import Chole from "../asset/Chole.jpeg";
 import Garlic_Naan from "../asset/garlic_naan.jpeg";
 import Kadai_Paneer from "../asset/Kadai_paneer.jpeg";
@@ -249,4 +249,194 @@ const POS = () => {
   );
 };
 
-export default POS;
+export default POS;*/
+
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const WaiterInterface = () => {
+  const [menu, setMenu] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [tableNumber, setTableNumber] = useState('');
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+
+  const fetchMenu = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/menu');
+      setMenu(response.data);
+    } catch (error) {
+      console.error('Error fetching menu:', error);
+    }
+  };
+
+  const handlePlaceOrder = async (event) => {
+    event.preventDefault();
+    if (!tableNumber || isNaN(tableNumber) || tableNumber < 1 || tableNumber > 5) {
+      setErrorMessage('Please enter a valid table number (1 to 5).');
+      return;
+    }
+
+    try {
+      const orderPayload = {
+        tableNumber: tableNumber,
+        items: cart.map(item => ({
+          itemName: item.item_name,
+          price: item.Price,
+          quantity: item.quantity
+        }))
+      };
+
+      await axios.post(`http://localhost:8080/order/${tableNumber}`, orderPayload);
+      console.log('Order placed successfully!');
+      window.alert('Order placed successfully!');
+      setCart([]); // Clear cart after placing order
+      setTableNumber(''); // Reset table number
+      setErrorMessage('');
+    } catch (error) {
+      console.error('Error placing order:', error);
+    }
+  };
+
+  const handleAddToCart = (item) => {
+    const existingItemIndex = cart.findIndex((cartItem) => cartItem.item_name === item.item_name);
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[existingItemIndex].quantity += 1;
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
+  };
+
+  const handleQuantityChange = (event, item) => {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.item_name === item.item_name) {
+        return { ...cartItem, quantity: parseInt(event.target.value) };
+      }
+      return cartItem;
+    });
+    setCart(updatedCart);
+  };
+
+  const removeItemFromCart = (item) => {
+    const updatedCart = cart.filter((cartItem) => cartItem.item_name !== item.item_name);
+    setCart(updatedCart);
+  };
+
+  const handleTableNumberChange = (event) => {
+    const inputTableNumber = event.target.value;
+    if (inputTableNumber >= 1 && inputTableNumber <= 5) {
+      setTableNumber(inputTableNumber);
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Please enter a valid table number (1 to 5).');
+    }
+  };
+
+  const handleScrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div>
+        <h2>Waiter Interface</h2>
+        <nav style={{ display: 'flex', justifyContent: 'center' }}>
+        <a href="#salads" onClick={() => handleScrollToSection('salads')}>Salads</a>
+        <a href="#soup" onClick={() => handleScrollToSection('soup')}>Soup</a>
+        <a href="#chapati" onClick={() => handleScrollToSection('chapati')}>Chapati</a>
+        <a href="#rice" onClick={() => handleScrollToSection('rice')}>Rice</a>
+        <a href="#paneer" onClick={() => handleScrollToSection('paneer')}>Paneer</a>
+        <a href="#dal" onClick={() => handleScrollToSection('dal')}>Dal</a>
+        <a href="#biryani" onClick={() => handleScrollToSection('biryani')}>Biryani</a>
+      </nav>
+        {!orderPlaced && (
+          <>
+            {Object.entries(menu).map(([tableName, items]) => (
+            <div key={tableName} id={tableName}>
+              <h3>{tableName.charAt(0).toUpperCase() + tableName.slice(1)}</h3>
+              <ul>
+                {items.map((item, index) => (
+                  <li key={index}>
+                    {item.item_name} - Rs {item.Price}
+                    <button onClick={() => handleAddToCart(item)} style={{ marginLeft: '1rem' }}>
+                      Add
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </>
+      )}
+        {orderPlaced && (
+          <div>
+            <p>Order placed successfully for table number {tableNumber}!</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <h3>Cart</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item, index) => (
+              <tr key={index}>
+                <td>{item.item_name}</td>
+                <td>{item.Price}</td>
+                <td>
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => handleQuantityChange(e, item)}
+                    min={1}
+                    max={10}
+                  />
+                </td>
+                <td>
+                  <button onClick={() => removeItemFromCart(item)}>Remove</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!orderPlaced && (
+          <>
+            <div>
+              <label htmlFor="tableNumber">Enter Table Number: </label>
+              <input
+                type="number"
+                id="tableNumber"
+                value={tableNumber}
+                onChange={handleTableNumberChange}
+                min={1}
+                max={5}
+                required
+              />
+              <span style={{ color: 'red' }}>{errorMessage}</span>
+            </div>
+            <button type="button" onClick={handlePlaceOrder}>Place Order</button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default WaiterInterface;
