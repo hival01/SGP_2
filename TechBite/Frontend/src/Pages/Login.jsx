@@ -129,8 +129,10 @@ function Login() {
           // Assuming res.userType contains information about the user type (e.g., "waiter" or "manager")
           if (values.email === "admin123@gmail.com") {
             navigate("/manager");
-          } else {
+          } else if (values.email === "waiter@gmail.com") {
             navigate("/waiter");
+          } else {
+            navigate("/KitchenModule");
           }
         } else {
           alert("No record");
@@ -138,8 +140,8 @@ function Login() {
       } catch (err) {
         console.log(err);
       }
-    }
-  };
+    };
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 " style={{ backgroundColor: "#B5E2FA" }}>

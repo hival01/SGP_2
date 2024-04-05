@@ -20,12 +20,7 @@ const Home = () => {
               <Link to="/login" className="btn btn-primary btn-lg mr-3">Login</Link>
              
             </div>
-            <div className="d-flex flex-column align-items-center m-3">
-            <div className="d-flex justify-content-between  w-80 m-3">
-              <Link to="/KitchenModule" className="btn btn-primary btn-lg mr-3">Kitchen</Link>
-             
-            </div>
-            </div>
+        
           </div>
         </div>
       </div>

@@ -13,12 +13,22 @@ const ManagerDashboard = () => {
           </div>
           <div className="row">
             <div className="col-md-6 offset-md-3">
-              <Link to="/manager/orders" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#28a745', borderColor: '#28a745' }}>Orders</Link>
+              <Link to="/manager/orders" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#28a745' }}>Orders</Link>
             </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-6 offset-md-3">
              <Link to="/manager/EditMenu" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Edit Menu</Link>
+            </div>
+          </div>
+          <div className="row mt-3">
+            <div className="col-md-6 offset-md-3">
+             <Link to="/signup" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Add Waiter</Link>
+            </div>
+          </div>
+          <div className="row mt-3">
+            <div className="col-md-6 offset-md-3">
+             <Link to="/signup" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Add kitchen staff</Link>
             </div>
           </div>
         </div>
