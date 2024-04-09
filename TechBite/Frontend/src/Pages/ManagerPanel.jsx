@@ -24,16 +24,6 @@ function ManagerPanel() {
 
   const addItem = async () => {
     try {
-      let tableExists = false;
-      for (const table in menu) {
-        if (table === category) {
-          tableExists = true;
-          break;
-        }
-      }
-      if (!tableExists) {
-        await axios.post('http://localhost:3007/create-table', { tableName: category });
-      }
       await axios.post('http://localhost:3007/add-item', { tableName: category, itemName, price });
       fetchMenu();
       setItemName('');

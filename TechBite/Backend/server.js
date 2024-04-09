@@ -362,20 +362,6 @@ app.get('/menu', (req, res) => {
   });
 });
 
-app.post('/create-table', (req, res) => {
-  const { tableName } = req.body;
-  const createTableQuery = `CREATE TABLE ${tableName} (item_name VARCHAR(255), Price FLOAT)`;
-  pool.query(createTableQuery, (err, result) => {
-      if (err) {
-          console.error('Error creating table:', err);
-          res.status(500).json({ error: 'Internal Server Error' });
-          return;
-      }
-      console.log('Table created successfully');
-      res.status(200).send('Table created successfully');
-  });
-});
-
 app.post('/add-item', (req, res) => {
   const { tableName, itemName, price } = req.body;
   const insertQuery = `INSERT INTO ${tableName} (item_name, Price) VALUES (?, ?)`;
@@ -419,6 +405,37 @@ app.post('/update-item', (req, res) => {
           console.log('Item updated successfully');
           res.status(200).send('Item updated successfully');
       }
+  });
+});
+
+
+// Endpoint to truncate table
+app.post('/truncate-table', (req, res) => {
+  const { tableName } = req.body;
+  const truncateQuery = `TRUNCATE TABLE ${tableName}`;
+  pool.query(truncateQuery, (err, result) => {
+    if (err) {
+      console.error('Error truncating table:', err);
+      res.status(500).send('Error truncating table');
+    } else {
+      console.log('Table truncated successfully');
+      res.status(200).send('Table truncated successfully');
+    }
+  });
+});
+
+// Endpoint to add payment record
+app.post('/add-payment', (req, res) => {
+  const { amount, date } = req.body;
+  const insertPaymentQuery = `INSERT INTO payment (amount, date) VALUES (?, ?)`;
+  pool.query(insertPaymentQuery, [amount, date], (err, result) => {
+    if (err) {
+      console.error('Error adding payment record:', err);
+      res.status(500).send('Error adding payment record');
+    } else {
+      console.log('Payment record added successfully');
+      res.status(200).send('Payment record added successfully');
+    }
   });
 });
 
