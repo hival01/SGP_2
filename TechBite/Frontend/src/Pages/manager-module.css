@@ -1,0 +1,118 @@
+/* Manager container styles */
+.manager-container {
+    margin: 40px auto; /* Increase margin for spacing */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+  }
+  
+  /* Manager heading styles */
+  .manager-heading {
+    color: #023047;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Menu heading styles */
+  .menu-heading {
+    color: #023047;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Menu table styles */
+  .menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #023047;
+  }
+  
+  /* Table header styles */
+  .menu-table th {
+    padding: 12px 20px;
+    text-align: left;
+    background-color: #8ECAE6;
+    color: #023047;
+    font-weight: bold;
+  }
+  
+  /* Table cell styles */
+  .menu-table td {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Remove button styles */
+  .remove-button {
+    padding: 8px 16px;
+    background-color: #FB8500;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Remove button hover styles */
+  .remove-button:hover {
+    background-color: #FFB703;
+  }
+  
+  /* Apply spacing between divs */
+  .manager-container > * {
+    margin-bottom: 20px;
+  }
+  
+  /* Apply spacing between buttons */
+  .manager-container button {
+    margin-right: 10px;
+  }
+  
+  .table-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-selection button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    background-color: #219EBC;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .table-selection button:hover {
+    background-color: #001D2D; /* Darker shade of blue on hover */
+  }
+  
+  .remove-button {
+    background-color: #dc3545; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 8px 12px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 4px; /* Add border radius */
+  }
+  
+  .remove-button:hover {
+    background-color: #c82333; /* Darker red background color on hover */
+  }
+  
+  .print-content {
+    margin : 20px;
+    border: 2px solid #000; 
+    padding: 20px; 
+  }

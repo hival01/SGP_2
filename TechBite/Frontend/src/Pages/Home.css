@@ -1,0 +1,39 @@
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the start (left) */
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .content-container {
+    z-index: 1;
+    padding: 20px;
+    text-align: left; /* Align content to the left */
+    width: 50%; /* Take up half of the page width */
+  }
+  
+  .content-container h2 {
+    color: #fff;
+    font-size: 3rem;
+  }
+  
+  .content-container p {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    color: #fff;
+  }
+  

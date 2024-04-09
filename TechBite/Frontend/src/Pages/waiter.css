@@ -1,81 +1,154 @@
 /* waiter.css */
 
 .container {
-    display: flex;
-  }
+  display: flex;
+}
+
+.menu h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+  color: #023047; /* Same dark blue color as in Kitchen Module */
+  padding: 20px;
+  background-color: #8ecae6; /* Same yellow color as in Kitchen Module */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.menu h2:hover {
+  background-color: #219eBC; /* Same blue color as in Kitchen Module */
+  color: #fff; /* White text color */
+}
+
+.menu {
+  flex: 1;
+  margin-right: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.cart {
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+  position: sticky;
+  top: 20px; /* Stick to the top of the container */
+  max-height: calc(100vh - 40px);
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 2px solid black; /* Black border */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #199600;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.menu-link:hover {
+  background-color: #FFB703; /* Blue background color on hover */
+  color: black; /* White text color on hover */
+}
+
+.menu h2,
+.cart h2 {
+  margin-bottom: 10px;
+}
+
+.menu nav {
+  display: flex;
+  justify-content: center;
+}
+
+.menu nav a {
+  margin: 0 10px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-item{
+  cursor: pointer;
+}
+.add-button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 40px;
+}
+
+.add-button:hover {
+  background-color: #FFB703;
+  transition: background-color 0.3s ease;
   
-  .menu {
-    flex: 1;
-    margin-right: 20px;
-  }
-  
-  .cart {
-    flex: 1;
-  }
-  
-  .menu h2, .cart h2 {
-    margin-bottom: 10px;
-  }
-  
-  .menu nav {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .menu nav a {
-    margin: 0 10px;
-  }
-  
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .add-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .add-button:hover {
-    background-color: #0056b3;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #ddd;
-  }
-  
-  input[type="number"] {
-    width: 50px;
-    text-align: center;
-  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+#tableNumber {
+  margin-right: 10px;
+}
+
+.place-order-button {
+  padding: 12px 24px; /* Padding for the button */
+  background-color: #4CAF50; /* Green background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  display: block; /* Change the button display to block */
+  margin: 0 auto;
+}
+
+.place-order-button:hover {
+  background-color: #45a049; /* Darker shade of green on hover */
+}

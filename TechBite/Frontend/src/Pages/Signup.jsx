@@ -20,7 +20,7 @@ function Signup() {
     event.preventDefault();
     setErrors(Validation(values));
     if(errors.name === "" && errors.email ==="" && errors.password ===""){
-        axios.post('http://localhost:8080/signup',values)
+        axios.post('http://localhost:3007/signup',values)
         .then(res => {
             navigate('/login');
         })
@@ -28,19 +28,15 @@ function Signup() {
 
     }
    
-  }
-
-
-
-  
+  }  
   return (
     
       <div
         className="d-flex justify-content-center align-items-center  vh-100 "
-        style={{ backgroundColor: "#B5E2FA" }}
+        style={{ backgroundColor: "#8ECAE6" }}
       >
         <div className="bg-white p-3 rounded w-25 ">
-          <h2 >Sign UP</h2>
+          <h2 >Welcome to the Service Squad</h2>
           <hr />
           <form  onSubmit={handleSubmit}>
             <div  className="md-3 mt-3">
@@ -82,15 +78,8 @@ function Signup() {
             <br />
             {/* <p>you are agree to our terms and conditon</p> */}
             <button type='submit' className="btn btn-success w-100 mb-2 rounded-25">
-              Sign Up{" "}
+              Add {" "}
             </button>
-            <p>Already have an account ?</p>
-            <Link
-              to="/login"
-              className="btn btn-defult border w-100 bg-light rounded-0 text-decoration-none"
-            >
-              Login{" "}
-            </Link>
           </form>
         </div>
       </div>

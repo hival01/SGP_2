@@ -1,0 +1,134 @@
+/* Manager heading styles */
+.manager-heading {
+    color: #023047; /* Dark blue */
+    font-size: 48px; /* Larger font size */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px; /* Increased bottom margin for spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+    letter-spacing: 1px; /* Increased letter spacing for emphasis */
+  }
+  
+/* Card container styles */
+.card-container {
+    background-color: #8ECAE6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    padding: 20px;
+    width: 300px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the card horizontally */
+    
+  }
+  
+  /* Input container styles */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  /* Label styles */
+  .input-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Input styles */
+  .input-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  /* Input focus styles */
+  .input-container input:focus {
+    border-color: #219EBC; /* Dark blue */
+  }
+  
+  /* Button styles */
+  .input-container button.add-button {
+    padding: 12px 24px;
+    background-color: #FB8500; /* Orange */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-right: 35px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Button hover styles */
+  .input-container button.add-button:hover {
+    background-color: #FFB703; /* Darker shade of orange on hover */
+  }
+
+
+
+  /* Container styles for the menu */
+  .menu-container {
+    margin: 20px auto; /* Auto margins for centering horizontally */
+    border: 1px solid #ccc; /* Border around the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px; /* Padding inside the container */
+    width: 80%; /* Adjusted width */
+    max-width: 600px; /* Maximum width */
+  }
+  
+  /* Menu heading styles */
+  .menu-heading {
+    color: #023047; /* Dark blue */
+    font-size: 24px; /* Increased font size */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px; /* Increased bottom margin for spacing */
+  }
+  
+  /* Menu table styles */
+  .menu-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+    border: 2px solid #023047; /* Dark blue border */
+  }
+  
+  /* Table header styles */
+  .menu-table th {
+    padding: 12px 20px; /* Padding for header cells */
+    text-align: left;
+    background-color: #8ECAE6; /* Light blue background */
+    color: #023047; /* Dark blue text color */
+    font-weight: bold;
+  }
+  
+  /* Table cell styles */
+  .menu-table td {
+    padding: 10px 20px; /* Padding for data cells */
+    border-bottom: 1px solid #ccc; /* Bottom border */
+  }
+  
+  /* Editable cell styles */
+  .menu-table td.editable {
+    background-color: #FEE715; /* Yellow background for editable cells */
+  }
+  
+  /* Remove button styles */
+  .remove-button {
+    padding: 8px 16px;
+    background-color: #FB8500; /* Orange */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Remove button hover styles */
+  .remove-button:hover {
+    background-color: #FFB703; /* Darker shade of orange on hover */
+  }
+  
