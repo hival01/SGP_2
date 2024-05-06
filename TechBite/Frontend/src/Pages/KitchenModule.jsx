@@ -69,8 +69,14 @@ const KitchenModule = () => {
           </ul>
         </div>
       ))}
-      <div className="logout-btn">
-          <Link to="/" className="btn btn-danger" style={{ position: 'absolute', top: '20px', right: '20px' }}>Logout</Link>
+      <div className="logout-btn" style={{ position: "absolute", top: "20px", right: "20px"  }}>
+        <Link
+          to="/"
+          className="btn btn-danger"
+          style={{ padding: "10px 20px", fontSize: "1.1rem" }}
+        >
+          Logout
+        </Link>
       </div>
     </div>
   );

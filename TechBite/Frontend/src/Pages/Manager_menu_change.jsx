@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./manager-panel.css";
 
-function ManagerPanel() {
+function Manager_menu_change() {
   const [menu, setMenu] = useState([]);
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
@@ -65,7 +65,8 @@ function ManagerPanel() {
 
   return (
     <div className="manager-container">
-      <h1 className="manager-heading">Orders</h1>
+      <h1 className="manager-heading">Change Menu</h1>
+      <hr />
       <div className="input-container card-container">
         <label>Category:</label>
         <input
@@ -89,7 +90,7 @@ function ManagerPanel() {
           Add Item
         </button>
       </div>
-      <h2 className="menu-heading">Menu</h2>
+      <h2 className="menu-heading">Existing Menu</h2>
       <table className="menu-table">
         <thead>
           <tr>
@@ -152,4 +153,4 @@ function ManagerPanel() {
   );
 }
 
-export default ManagerPanel;
+export default Manager_menu_change;
