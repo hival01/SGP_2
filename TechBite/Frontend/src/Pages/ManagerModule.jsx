@@ -225,7 +225,7 @@ function ManagerModule() {
 
 return (
   <div className="manager-container">
-    <h1 className="manager-heading">Manager Module</h1>
+    <h1 className="manager-heading">Orders</h1>
     <div className="table-selection">
       <button onClick={() => handleTableSelect(1)}>Table 1</button>
       <button onClick={() => handleTableSelect(2)}>Table 2</button>
@@ -290,10 +290,10 @@ return (
     )}
 
     <div ref={componentRef} className="print-content">
-      <h1 className="restaurant-name">The Tea Factory</h1>
+      <h1 className="restaurant-name">The Mango County Restaurant & Banquet</h1>
       <div className="contact-info">
-        <p>Contact No: +91 8200976991</p>
-        <p>Address: Ground floor, lotus complex, opp. Om hostel</p>
+        <p>Contact No: +91 7801859797</p>
+        <p>Address: Piplag Chokdi, Nadiad - Petlad Rd, Nadiad, Gujarat 387335</p>
       </div>
       <table className="table">
         <thead>
@@ -327,7 +327,7 @@ return (
 
       <h2>
         {" "}
-        <strong>From our kitchen to your table, thank you for choosing ttf </strong>
+        <strong>From our kitchen to your table, thank you for choosing Us! </strong>
       </h2>
     </div>
   </div>

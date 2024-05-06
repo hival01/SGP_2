@@ -3,7 +3,7 @@
 /* Container styles */
 .kitchen-module-container {
     padding: 20px;
-    background-color: #8ecae6; /* Yellow */
+    background-color: #5fa8d3; /* Yellow */
     font-family: Arial, sans-serif;
     min-height: 100vh; /* Minimum height to cover the viewport */
     display: flex; /* Use flexbox to make the container flexibly adjust to content */
@@ -14,7 +14,7 @@
   .kitchen-module-heading {
     font-size: 28px;
     font-weight: bold;
-    color: #023047; /* Dark blue */
+    color: #003753; /* Dark blue */
     margin-bottom: 20px;
   }
   
@@ -25,7 +25,7 @@
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
-    background-color: #ffb703;
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
   
@@ -33,7 +33,7 @@
   .table-heading {
     font-size: 20px;
     font-weight: bold;
-    color: #023047; /* Dark blue */
+    color: #003753; /* Dark blue */
     margin-bottom: 10px;
   }
   

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import restaurantImage from "../asset/home_background.png";
+import restaurantImage from "../asset/home_background.jpg";
 import "./Home.css"; // Import CSS file for custom styles
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
         className="background-image"
       />
       <div className="content-container">
-        <div className="text-center mb-5">
+        <div className="text-center">
           <h2 className="display-4 mt-5">Welcome!</h2>
           <p className="lead">
             Streamline your restaurant operations with TechBite. Login to access
