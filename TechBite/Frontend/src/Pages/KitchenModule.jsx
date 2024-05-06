@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './kitchen-module.css'; // Import the CSS file
+import { Link } from 'react-router-dom';
+import './kitchen-module.css';
 
 const KitchenModule = () => {
   const [orders, setOrders] = useState([]);
@@ -68,6 +69,9 @@ const KitchenModule = () => {
           </ul>
         </div>
       ))}
+      <div className="logout-btn">
+          <Link to="/" className="btn btn-danger" style={{ position: 'absolute', top: '20px', right: '20px' }}>Logout</Link>
+      </div>
     </div>
   );
 };

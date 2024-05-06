@@ -72,12 +72,15 @@
 
 .menu li {
   margin-bottom: 10px;
-  display: flex;
+  display:block;
   align-items: center;
   justify-content: space-between;
 }
 .menu-item{
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .add-button {
   padding: 8px 20px;
@@ -87,7 +90,6 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 40px;
 }
 
 .add-button:hover {

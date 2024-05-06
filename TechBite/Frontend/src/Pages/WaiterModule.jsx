@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./waiter.css";
 
 const WaiterInterface = () => {
@@ -360,7 +361,11 @@ const WaiterInterface = () => {
           </>
         )}
       </div>
+      <div className="logout-btn">
+          <Link to="/" className="btn btn-danger" style={{ position: 'absolute', top: '20px', right: '20px' }}>Logout</Link>
+        </div>
     </div>
+    
   );
 };
 

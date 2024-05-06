@@ -13,19 +13,22 @@ const ManagerDashboard = () => {
           </div>
           <div className="row">
             <div className="col-md-6 offset-md-3">
-              <Link to="/manager/module" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#28a745' }}>Orders</Link>
+              <Link to="/manager/module" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#28a745' }}>Generate Bill</Link>
             </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-6 offset-md-3">
-             <Link to="/manager/managerpanel" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Edit Menu</Link>
+              <Link to="/manager/managerpanel" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Edit Menu</Link>
             </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-6 offset-md-3">
-             <Link to="/addWaiter" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Add New Waiter</Link>
+              <Link to="/addWaiter" className="btn btn-primary btn-lg btn-block" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>Add New Waiter</Link>
             </div>
           </div>
+        </div>
+        <div className="logout-btn">
+          <Link to="/" className="btn btn-danger" style={{ position: 'absolute', top: '20px', right: '20px' }}>Logout</Link>
         </div>
       </div>
     </div>
