@@ -62,7 +62,7 @@ const KitchenModule = () => {
                   />
                 </label>
                 <span className={item.status === 'Completed' ? 'completed-item' : ''}>
-                  {item.item_name}  × {item.Quantity}
+                   {item.Quantity} × {item.item_name}
                 </span>
               </li>
             ))}

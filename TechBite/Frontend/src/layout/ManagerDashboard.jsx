@@ -14,7 +14,7 @@ const ManagerDashboard = () => {
           </div>
         </div>
 
-<hr /><br /><br /><br /><br /><br /><br />
+<hr />  <br /><br /><br /><br /><br />
 
         {/* 1st */}
         <Link
@@ -41,11 +41,32 @@ const ManagerDashboard = () => {
           </div>
         </Link>
 
-        {/* </div> */}
-
         {/* 2nd */}
         <Link
           to="/manager/changeMenu"
+          style={{
+            width: "20rem",
+            border: "solid black",
+            padding: "20px",
+            margin: "auto",
+          }}
+        >
+          <div className="card" style={{ border: "none" }}>
+            <img
+              src={edit_menu}
+              className="card-img-top"
+              alt="add people"
+            />
+            <div className="card-body d-flex justify-content-center align-items-center">
+              <h5 className="btn btn-primary btn-lg btn-block">
+              Edit Menu
+              </h5>
+            </div>
+          </div>
+        </Link>
+        {/* 3rd */}
+        <Link
+          to="/addWaiter "
           style={{
             width: "20rem",
             border: "solid black",
@@ -67,29 +88,7 @@ const ManagerDashboard = () => {
             </div>
           </div>
         </Link>
-        {/* 3rd */}
-        <Link
-          to="/addWaiter"
-          style={{
-            width: "20rem",
-            border: "solid black",
-            padding: "20px",
-            margin: "auto",
-          }}
-        >
-          <div className="card" style={{ border: "none" }}>
-            <img
-              src={edit_menu}
-              className="card-img-top"
-              alt="add people"
-            />
-            <div className="card-body d-flex justify-content-center align-items-center">
-              <h5 className="btn btn-primary btn-lg btn-block">
-              Edit Menu
-              </h5>
-            </div>
-          </div>
-        </Link>
+        
     
         <div className="logout-btn">
           <Link

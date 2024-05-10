@@ -5,7 +5,7 @@ import axios from "axios";
 
 function Signup() {
   const [values,setValues] =useState({
-    name:'',
+    // name:'',
     email:'',
     password:''
    })
@@ -19,10 +19,12 @@ function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-    if(errors.name === "" && errors.email ==="" && errors.password ===""){
+    if(
+      errors.name === "" && 
+      errors.email ==="" && errors.password ===""){
         axios.post('http://localhost:3007/signup',values)
         .then(res => {
-            navigate('/login');
+            navigate('/manager');
         })
         .catch(err => console.log(err));
 
